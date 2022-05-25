@@ -12,12 +12,20 @@ class Contador extends StatefulWidget {
 // esta clase es la que nos permite mostrar en pantalla los cambios de estado
 
 class _ContadorState extends State<Contador> {
+  
+  int count = 0;
+  void _incrementCounter() {
+      setState(() {
+        count++;
+
+      });
+    }
+
   @override
   Widget build(BuildContext context) {
 
-    int count = 10;
-
-    // se puede susar dos formas, para englobar el tama;o del texto, una es creando una variable
+    
+    // se puede usar dos formas, para englobar el tama;o del texto, una es creando una variable
     // constante para el scope, del widget, o agregando el atributo directamente al texto, dependiendo de la variable
     // necesidad
 
@@ -51,14 +59,10 @@ class _ContadorState extends State<Contador> {
       // este atributo permite agregar un boton flotante, este widget contiene una lista de iconos  
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.access_alarm),
-        onPressed: () {
-          count++;
-          showMessage();
-        }));
+        onPressed: _incrementCounter,
+      ));
   }
 
   // para crear metodos, recordemos que ellos se declaran con el tipo de dato que van a retornar,
-  void showMessage () {
-    print('Hi, Again');
-  }
+ 
 }
